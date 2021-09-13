@@ -7,8 +7,15 @@ var porta = server.porta;
 var conexao = bancodedados.conexao;
 var documentos = bancodedados.documentos;
 
-//outras coisas
+app.set('view engine', 'ejs');
+
+//abrir form.ejs
 app.get('/', (req, res)=>{
+    res.render('form');
+});
+
+//gravar as informações do form.ejs
+app.post('/gravar', (req, res)=>{
     conexao();
 
     new documentos({

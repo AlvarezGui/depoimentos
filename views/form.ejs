@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h3>Depoimentos</h3>
+    <form action="/gravar" method="POST">
+        <!-- Nome -->
+        <label for="nome">Nome:</label> <br>
+        <input type="text" name="nome" id="nome" placeholder="Digite aqui seu nome"> <br> <br>
+        <!-- Cargo -->
+        <label for="cargo">Cargo:</label> <br>
+        <input type="text" name="cargo" id="cargo" placeholder="Digite aqui seu cargo"> <br> <br>
+        <!-- mensagem -->
+        <label for="mensagem">Mensagem:</label> <br>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea> <br> <br>
+        <!-- botão -->
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
