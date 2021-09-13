@@ -16,12 +16,14 @@ app.get('/', (req, res)=>{
 
 //gravar as informações do form.ejs
 app.post('/gravar', (req, res)=>{
+    var dados = req.body;
+
     conexao();
 
     new documentos({
-        mensagem:'teste 0909',
-        nome:'teste nome',
-        cargo:'teste cargo'
+        mensagem: dados.mensagem,
+        nome: dados.nome,
+        cargo: dados.cargo
     }).save()
     res.send('não deu');
 });
