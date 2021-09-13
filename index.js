@@ -15,7 +15,8 @@ app.get('/', (req, res)=>{
         mensagem:'teste 0909',
         nome:'teste nome',
         cargo:'teste cargo'
-    }).save();
+    }).save()
+    res.send('não deu');
 });
 
 app.listen(porta);
