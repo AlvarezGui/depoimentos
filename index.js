@@ -11,21 +11,38 @@ app.set('view engine', 'ejs');
 
 //abrir form.ejs
 app.get('/', (req, res)=>{
-    res.render('form');
+    conexao();
+    documentos.find().sort({"_id":-1})
+    .then((documentos)=>{
+        res.render('form', {documentos});
+    });
 });
 
 //gravar as informações do form.ejs
 app.post('/gravar', (req, res)=>{
     var dados = req.body;
 
-    conexao();
+    conexao();          
 
     new documentos({
         mensagem: dados.mensagem,
         nome: dados.nome,
         cargo: dados.cargo
     }).save()
-    res.send('não deu');
+    res.redirect('/');
+});
+
+//excluir arquivos
+app.get('/excluir', (req,res)=>{
+    var id = req.query.id;
+    conexao();
+    documentos.findOneAndRemove({_id:id})
+    .then((documentos)=>{
+        res.redirect('/');
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
 });
 
 app.listen(porta);

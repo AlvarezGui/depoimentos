@@ -21,5 +21,28 @@
         <!-- botão -->
         <input type="submit" value="Enviar">
     </form>
+
+    <br> <br>
+
+    <!-- inicio mostrar documento -->
+    <table border="1">
+        <tr>
+            <th>Nome: </th>
+            <th>Cargo: </th>
+            <th>Mensagem: </th>
+            <th>Ações:</th>
+        </tr>
+
+        <% for(var n = 0; n < documentos.length; n++){ %>
+            <tr>
+                <td><%=documentos[n].nome%></td>
+                <td><%=documentos[n].cargo%></td>
+                <td><%=documentos[n].mensagem%></td>
+                <td><a href="/excluir?id=<%=documentos[n].id%>">Excluir</a></td>
+            </tr>
+        <% } %>
+    </table>
+    <!-- fim mostrar documento -->
+
 </body>
 </html>
