@@ -8,40 +8,46 @@
 </head>
 <body>
     <h3>Depoimentos</h3>
-    <form action="/gravar" method="POST">
-        <!-- Nome -->
-        <label for="nome">Nome:</label> <br>
-        <input type="text" name="nome" id="nome" placeholder="Digite aqui seu nome"> <br> <br>
-        <!-- Cargo -->
-        <label for="cargo">Cargo:</label> <br>
-        <input type="text" name="cargo" id="cargo" placeholder="Digite aqui seu cargo"> <br> <br>
-        <!-- mensagem -->
-        <label for="mensagem">Mensagem:</label> <br>
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea> <br> <br>
-        <!-- botão -->
-        <input type="submit" value="Enviar">
-    </form>
+    <fieldset>
+        <legend>Depoimentos</legend>
+        <form action="/gravar" method="POST">
+            <!-- Nome -->
+            <label for="nome">Nome:</label> <br>
+            <input type="text" name="nome" id="nome" placeholder="Digite aqui seu nome"> <br> <br>
+            <!-- Cargo -->
+            <label for="cargo">Cargo:</label> <br>
+            <input type="text" name="cargo" id="cargo" placeholder="Digite aqui seu cargo"> <br> <br>
+            <!-- mensagem -->
+            <label for="mensagem">Mensagem:</label> <br>
+            <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea> <br> <br>
+            <!-- botão -->
+            <input type="submit" value="Enviar">
+        </form>
+    </fieldset>
 
     <br> <br>
 
     <!-- inicio mostrar documento -->
-    <table border="1">
-        <tr>
-            <th>Nome: </th>
-            <th>Cargo: </th>
-            <th>Mensagem: </th>
-            <th>Ações:</th>
-        </tr>
-
-        <% for(var n = 0; n < documentos.length; n++){ %>
+    <fieldset>
+        <legend>Registro</legend>
+        <table border="1">
             <tr>
-                <td><%=documentos[n].nome%></td>
-                <td><%=documentos[n].cargo%></td>
-                <td><%=documentos[n].mensagem%></td>
-                <td><a href="/excluir?id=<%=documentos[n].id%>">Excluir</a></td>
+                <th>Nome: </th>
+                <th>Cargo: </th>
+                <th>Mensagem: </th>
+                <th>Ações:</th>
             </tr>
-        <% } %>
-    </table>
+
+            <% for(var n = 0; n < documentos.length; n++){ %>
+                <tr>
+                    <td><%=documentos[n].nome%></td>
+                    <td><%=documentos[n].cargo%></td>
+                    <td><%=documentos[n].mensagem%></td>
+                    <td><a href="/excluir?id=<%=documentos[n].id%>">Excluir</a></td>
+                </tr>
+            <% } %>
+        </table>
+    </fieldset>
     <!-- fim mostrar documento -->
 
 </body>
